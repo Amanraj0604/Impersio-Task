@@ -190,3 +190,99 @@ Returns the list of all registered users. Only accessible to users with the `adm
   "samplePortfolio": "https://example.com/aman-portfolio"
 }
 ```
+### 📋 Get Partner Leads (Auto-assigned)
+
+**Method:** `GET`  
+**URL:**  
+`https://impersio-task-1.onrender.com/api/partner/leads`
+
+
+**Description:**  
+Fetches the list of **leads automatically assigned** by system based on location and cetegory to the currently logged-in partner by the system.  
+Only accessible to authenticated users with the `partner` role.
+
+> 🔐 This route is protected and requires a valid JWT token from a logged-in **partner**.
+
+
+### 🔄 Update Lead Status (Partner Only)
+
+**Method:** `PUT`  
+**URL:**  
+`https://impersio-task-1.onrender.com/api/partner/update-leads`
+
+**Request Body (JSON):**
+
+```json
+{
+  "id": 1,
+  "status": "booked"
+}
+```
+### 📝 Create Lead / Inquiry (Client Only)
+
+**Method:** `POST`  
+**URL:**  
+`https://impersio-task-1.onrender.com/api/lead/inquiry`
+
+
+**Request Body (JSON):**
+
+```json
+{
+  "category": "photography",
+  "date": "2025-08-30",
+  "budget": 15000,
+  "city": "Delhi",
+  "referenceImageUrl": "https://in.pinterest.com/pin/353532639519963448/"
+}
+```
+### 🛂 Get Partner Verification Requests (Admin Only)
+
+**Method:** `GET`  
+**URL:**  
+`https://impersio-task-1.onrender.com/api/admin/verifications`
+
+
+
+**Description:**  
+Fetches a list of **pending, approved, and rejected** partner registration requests. Admins can use the verification or rejection links to approve or reject users.
+
+**Example Response:**
+
+```json
+{
+  "success": true,
+  "count": 3,
+  "users": [
+    {
+      "username": "neha",
+      "email": "neha@gmail.com",
+      "phone": "9876543216",
+      "role": "partner",
+      "status": "rejected",
+      "createdAt": "2025-07-26T08:39:29.000Z",
+      "note": "This user has been rejected"
+    },
+    {
+      "username": "Anshika",
+      "email": "anshika@gmail.com",
+      "phone": "9807687239",
+      "role": "partner",
+      "status": "pending",
+      "createdAt": "2025-07-26T11:51:39.000Z",
+      "verificationLink": "https://impersio-task-1.onrender.com/api/auth/signup-verify?userEmail=anshika%40gmail.com",
+      "RejectionLink": "https://impersio-task-1.onrender.com/api/admin/reject-user?userEmail=anshika%40gmail.com",
+      "note": "Click the above links to either verify or reject this user"
+    },
+    {
+      "username": "Mansi",
+      "email": "mansi@gmail.com",
+      "phone": "9807987289",
+      "role": "partner",
+      "status": "rejected",
+      "createdAt": "2025-07-26T11:53:22.000Z",
+      "note": "This user has been rejected"
+    }
+  ]
+}
+```

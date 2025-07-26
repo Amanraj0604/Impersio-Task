@@ -11,6 +11,8 @@ Hosted on Render: [https://impersio-task-1.onrender.com](https://impersio-task-1
 - User Login with JWT token
 - Role-based access control
 - Secure password storage with bcrypt
+- Password Forgot By OTP verification
+- User Verification Through Email as well as tshi API https://impersio-task-1.onrender.com/api/admin/verifications by ADMIN
 - RESTful API structure
 - Hosted live on Render
 
@@ -37,6 +39,30 @@ Hosted on Render: [https://impersio-task-1.onrender.com](https://impersio-task-1
 These roles are assigned during registration and are protected via JWT-based access middleware.
 
 ---
+## 🛠️ Run Locally (Development Setup)
+
+Follow these steps to run the project locally on your system.
+
+### 📦 Prerequisites
+
+- [Node.js](https://nodejs.org/) (v16 or later recommended)
+- [npm](https://www.npmjs.com/) (comes with Node.js)
+- [PostgreSQL](https://www.postgresql.org/) or any supported SQL database
+- Git (to clone the project)
+
+---
+
+### 🚀 Steps to Setup
+
+#### 1. Clone the Repository
+
+```bash
+git clone https://github.com/Amanraj0604/Impersio-Task.git
+cd your-repo-name
+
+npm install
+
+npm start
 
 ## 📬 API Endpoints
 
@@ -59,6 +85,9 @@ These roles are assigned during registration and are protected via JWT-based acc
   "role": "partner"
 }
 ```
+### Ones the User Registered then admin resive a mail like below screen short
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/5f82f70c-e411-4382-8da9-413eef577b31" />
+
 ### 🔐 Login
 
 **Method:** `GET`  
@@ -286,3 +315,8 @@ Fetches a list of **pending, approved, and rejected** partner registration reque
   ]
 }
 ```
+**After Verify the user Admin Get Response Like :**
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e6b034ad-56b9-4f58-afbf-2f249666c7bc" />
+
+**After Reject the user Admin Get Response Like :**
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/763c1665-6e07-4eff-b1e9-117346e522a6" />
